@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezreal.mapper.UserMapper">
+	<resultMap type="com.ezreal.beans.UserBean" id="UserBean">
+	
+	
+	</resultMap>
+	<insert id="insertUser" parameterType="com.ezreal.beans.UserBean" useGeneratedKeys="true" keyProperty="userid">
+		insert into tour.t_user (username,password,mailbox,telephone,permission) VALUES (#{username},#{password},#{mailbox},#{telephone},#{permission});
+	</insert>
+	
+	
+
+
+</mapper>
+
