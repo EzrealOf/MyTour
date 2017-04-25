@@ -6,10 +6,13 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import com.ezreal.tool.BaseResponseByJson;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezreal.beans.CityBean;
@@ -25,19 +28,20 @@ public class SelectCityController {
 	private ICityService ICityServiceImpl;
 	@Resource
 	private ISpotService ISpotServiceImpl;
+	@Autowired
+	private BaseResponseByJson json;
+
 	@RequestMapping(value="/select",method=RequestMethod.POST)
-	public ModelAndView selectCityByName(HttpServletRequest req,CityBean city) throws Exception{
-		ModelAndView mv = new ModelAndView();
+	@ResponseBody
+	public List selectCityByName(CityBean city) throws Exception{
+		List<SpotBean> spotList = new ArrayList<SpotBean>();
 		
 		CityBean c = ICityServiceImpl.selectCityByName(city.getCityname());
 		if(c!=null){
-			List<SpotBean> spotList = new ArrayList<SpotBean>();
+
 			spotList = ISpotServiceImpl.selectSpotByCityId(c.getCityid());
-			mv.addObject("imessage",c);
-			mv.addObject("c",c);
-			mv.addObject("L",spotList);
-			mv.setViewName("city");
-			return mv;
+			return  spotList;
+
 		}
 		
 		return null;

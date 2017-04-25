@@ -52,7 +52,7 @@
 <div id="bodyBox">
 	<div id = "front">
 		1234566
-		<a href="tologin">登陆</a>
+		<a href="toLogin">登陆</a>
 		<input type="submit" value ="登陆" >
 		
 	</div >

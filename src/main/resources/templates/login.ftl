@@ -15,7 +15,7 @@
 <body>
 <div class="wrap">
 	    <div class="pop-title clearfix">
-	        <a class="a_underline" href="register.ftl">注册</a>
+	        <a class="a_underline" href="toRegister">注册</a>
 	        <div class="pop_name">
 	            登录<span class="grey"></span>
 	        </div>
@@ -47,8 +47,8 @@
 	    </form>
 	</div>
 	
-	<script src="/MyTourDesign/static/js/fullplay.js" type="text/javascript"></script>
-	<script src="/MyTourDesign/static/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<script src="js/fullplay.js" type="text/javascript"></script>
+	<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
 
 <div class="mmsg-box mmsg-box-info" id='msg-box' style="margin-top: -23.5px; margin-left: -96.5px;">
     <div class="mmsg-content">
@@ -102,6 +102,7 @@ function showLoginError(tip) {
 
 
 	<%-- <form> <!--onsubmit="return false"-->
+		<form>
 		用户名:<input type="text" name= "username" />
 		密码:<input type ="password"name = "password">
 		    <input type="submit" value ="登陆" onclick ="subLogin($(this))">
@@ -128,7 +129,7 @@ function showLoginError(tip) {
 	$.ajax({
     			//post或者get
     			type:'post',
-    			url:'<%=basePath%>login',
+    			url:'login',
     			timeout: 3000,
     			data: {userName : $("#username").val(), password : $("#password").val()},
     			dataType:'json',
@@ -140,6 +141,6 @@ function showLoginError(tip) {
     				}
     			}
     		});
-	</script> --%>
+	</script>
 </body>
 </html>
