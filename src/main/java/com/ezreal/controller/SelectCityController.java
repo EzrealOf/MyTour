@@ -2,9 +2,11 @@ package com.ezreal.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.ezreal.tool.BaseResponseByJson;
 import org.apache.log4j.Logger;
@@ -28,22 +30,24 @@ public class SelectCityController {
 	private ICityService ICityServiceImpl;
 	@Resource
 	private ISpotService ISpotServiceImpl;
-	@Autowired
-	private BaseResponseByJson json;
 
-	@RequestMapping(value="/select",method=RequestMethod.POST)
-	@ResponseBody
-	public List selectCityByName(CityBean city) throws Exception{
+	/*@RequestMapping("/toCity")
+	public String City(){
+		return "poit";
+	}	*/
+
+	@RequestMapping(value="/toCity")
+	public String selectCityByName( CityBean city, Map<String,Object> model) throws Exception{
 		List<SpotBean> spotList = new ArrayList<SpotBean>();
-		
+		System.out.print("1234534564");
 		CityBean c = ICityServiceImpl.selectCityByName(city.getCityname());
 		if(c!=null){
-
 			spotList = ISpotServiceImpl.selectSpotByCityId(c.getCityid());
-			return  spotList;
-
+			System.out.print(spotList);
+			model.put("city",c.getCityname());
+			model.put("spotList", spotList);
+			return  "city";
 		}
-		
 		return null;
 		
 	}
