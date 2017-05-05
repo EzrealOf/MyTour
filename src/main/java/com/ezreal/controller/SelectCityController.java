@@ -8,6 +8,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ezreal.beans.NationBean;
+import com.ezreal.service.INationService;
 import com.ezreal.tool.BaseResponseByJson;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,8 @@ public class SelectCityController {
 	private ICityService ICityServiceImpl;
 	@Resource
 	private ISpotService ISpotServiceImpl;
+	@Resource
+	private INationService INationServiceImpl;
 
 	/*@RequestMapping("/toCity")
 	public String City(){
@@ -37,16 +41,28 @@ public class SelectCityController {
 	}	*/
 
 	@RequestMapping(value="/toCity")
-	public String selectCityByName( CityBean city, Map<String,Object> model) throws Exception{
-		List<SpotBean> spotList = new ArrayList<SpotBean>();
+	public String selectCityByName(CityBean city, Map<String,Object> model) throws Exception{
+		List spotList = null;
 		System.out.print("1234534564");
 		CityBean c = ICityServiceImpl.selectCityByName(city.getCityname());
+		NationBean nationBean =INationServiceImpl.selectNationByName(city.getCityname());
+		SpotBean spotBean = ISpotServiceImpl.selectSpotBySpotname(city.getCityname());
 		if(c!=null){
 			spotList = ISpotServiceImpl.selectSpotByCityId(c.getCityid());
 			System.out.print(spotList);
 			model.put("city",c.getCityname());
 			model.put("spotList", spotList);
 			return  "city";
+		}else if(nationBean != null){
+			spotList =ICityServiceImpl.selectCityByNationID(nationBean.getNationid());
+			System.out.print(spotList);
+			model.put("city",nationBean.getNationname());
+			model.put("spotList", spotList);
+			return "nation";
+		}else if(spotBean !=null){
+			model.put("spot",spotBean);
+			System.out.print(spotBean);
+			return "spot";
 		}
 		return null;
 		

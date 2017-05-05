@@ -18,4 +18,8 @@ public class SpotServiceImpl implements ISpotService{
 		return sm.selectSpotByCityId(id);
 	}
 
+	@Override
+	public SpotBean selectSpotBySpotname(String spotname) throws Exception {
+		return sm.selectSpotBySpotname(spotname);
+	}
 }

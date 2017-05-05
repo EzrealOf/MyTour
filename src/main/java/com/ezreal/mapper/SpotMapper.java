@@ -9,4 +9,7 @@ import com.ezreal.beans.SpotBean;
 public interface SpotMapper {
 	@Select("SELECT * from spot where cityid=#{id}")
 	public List<SpotBean> selectSpotByCityId(int id) throws Exception;
+
+	@Select("SELECT * from spot WHERE spotname =#{spotname}")
+	public SpotBean selectSpotBySpotname(String spotname) throws  Exception;
 }

@@ -15,11 +15,7 @@
 <body>
 <div class="wrap">
 	    <div class="pop-title clearfix">
-	        <a class="a_underline" href="register.ftl">注册</a>
-	        <div class="pop_name">
-	            登录<span class="grey"></span>
-	        </div>
-	
+	        <a class="a_underline" href="toRegister">注册</a>
 	    </div>
 	    <form onsubmit="return false">
 	        <div class="pop-content accountPage">
@@ -32,7 +28,7 @@
 	            </div>	
 	            <div class="form_item">
 	                <div class="item_tip">密码</div>
-	                <input type="password" tabindex="3" name="pwd" class="form_input" id="pwd" onblur="blurInputLoginBox($(this))"  onfocus ="focusInputLoginBox($(this))" autocomplete="off"/>
+	                <input type="password" tabindex="3" name="password" class="form_input" id="password" onblur="blurInputLoginBox($(this))"  onfocus ="focusInputLoginBox($(this))" autocomplete="off"/>
 	                <span class="error">不能为空</span>
 	                <span class="grey">6 - 20位</span>
 	                <i class="icon-loginright"></i>
@@ -47,8 +43,8 @@
 	    </form>
 	</div>
 	
-	<script src="/MyTourDesign/static/js/fullplay.js" type="text/javascript"></script>
-	<script src="/MyTourDesign/static/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<script src="js/fullplay.js" type="text/javascript"></script>
+	<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
 
 <div class="mmsg-box mmsg-box-info" id='msg-box' style="margin-top: -23.5px; margin-left: -96.5px;">
     <div class="mmsg-content">
@@ -61,12 +57,12 @@
 
 function subLogin(obj) {
     var username = $.trim($('#username').val());
-    var pwd = $.trim($('#password').val());
+    var password = $.trim($('#password').val());
     if (username == '') {
         showLoginError("请输入用户名或邮箱");
         return false;
     }
-    if (pwd == '') {
+    if (password == '') {
         showLoginError("请输入密码");
         return false;
     }
@@ -81,10 +77,10 @@ function subLogin(obj) {
 		data: {userName : username, password : password},
 		dataType:'json',
 		success:function(data){
-			if(data.status == 1){
-				
+			if(data.status == 0){
+
 //	            showSuccessTip(data.message);
-				window.location.href='index';
+				window.location.href='toIndex';
 			}else{
 				
 				showLoginError(data.message);
@@ -100,46 +96,15 @@ function showLoginError(tip) {
 }
 
 
+//
+//	<form>
+//		用户名:<input type="text" name= "username" />
+//		密码:<input type ="password"name = "password">
+//		    <input type="submit" value ="登陆" onclick ="subLogin($(this))">
+//	</form>
+//	<br>
+//	<a href="register">没有账号</a>
 
-	<%-- <form> <!--onsubmit="return false"-->
-		用户名:<input type="text" name= "username" />
-		密码:<input type ="password"name = "password">
-		    <input type="submit" value ="登陆" onclick ="subLogin($(this))">
-	</form>
-	<br>
-	<a href="register">没有账号</a>
-	
-	
-	
-	<script type="text/javascript">
-	function subLogin(obj){
-		var username = $.trim($('#username').val());
-	    var password = $.trim($('#password').val());
-	    if (username == '') {
-	        showLoginError("请输入用户名或邮箱");
-	        return false;
-	    }
-	    if (pwd == '') {
-	        showLoginError("请输入密码");
-	        return false;
-	    }
-	    obj.addClass('disabled').val('登录中...');
-	}
-	$.ajax({
-    			//post或者get
-    			type:'post',
-    			url:'<%=basePath%>login',
-    			timeout: 3000,
-    			data: {userName : $("#username").val(), password : $("#password").val()},
-    			dataType:'json',
-    			success:function(data){
-                                //成功回调
-    				if(data.status == 1){
-    				   //跳转页面
-    				   window.location.href='index';
-    				}
-    			}
-    		});
-	</script> --%>
+	</script>
 </body>
 </html>
