@@ -16,7 +16,8 @@
   </style>
 	<script src="http://www.jq22.com/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/fullplay.js"></script>
-
+      <script src='js/horsey.js'></script>
+      <script src='js/example.js'></script>
     <title>My JSP 'index.jsp' starting page</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -48,12 +49,25 @@
 
 <div id="bodyBox">
 	<div id = "front">
-		1234566
-		<a href="toLogin">登陆</a>
-		<input type="submit" value ="登陆" >
-		
+		<#include "topbar.ftl">
 	</div >
 	<h1>
+      <#--  <div class='parent'>
+            <label for='ly'</label>
+            <div><i id='lyr'>Being lazy...</i></div>
+            <input id='ly'/>
+            <pre>
+			      <code>
+			&lt;#&ndash;horsey(input, {
+			  suggestions: function (done) {
+			    setTimeout(function () {
+			      done(['banana', 'apple', 'orange','cmyk','ddrom','ebay','four','good','html','item','jack','kfack']);
+			    }, 2000);
+			  }
+			});&ndash;&gt;
+			      </code>
+			    </pre>
+        </div>-->
   		<form action="toCity" method="post">
 			搜索:
 			<input type="text" name="cityname" id="cityname"">

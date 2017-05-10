@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ezreal.beans.NationBean;
+import com.ezreal.beans.UserBean;
 import com.ezreal.service.INationService;
 import com.ezreal.tool.BaseResponseByJson;
 import org.apache.log4j.Logger;
@@ -41,12 +42,14 @@ public class SelectCityController {
 	}	*/
 
 	@RequestMapping(value="/toCity")
-	public String selectCityByName(CityBean city, Map<String,Object> model) throws Exception{
+	public String selectCityByName(HttpServletRequest req,String name,CityBean city, Map<String,Object> model) throws Exception{
 		List spotList = null;
-		System.out.print("1234534564");
-		CityBean c = ICityServiceImpl.selectCityByName(city.getCityname());
-		NationBean nationBean =INationServiceImpl.selectNationByName(city.getCityname());
-		SpotBean spotBean = ISpotServiceImpl.selectSpotBySpotname(city.getCityname());
+		if (name == null){
+			name = city.getCityname();
+		}
+		CityBean c = ICityServiceImpl.selectCityByName(name);
+		NationBean nationBean =INationServiceImpl.selectNationByName(name);
+		SpotBean spotBean = ISpotServiceImpl.selectSpotBySpotname(name);
 		if(c!=null){
 			spotList = ISpotServiceImpl.selectSpotByCityId(c.getCityid());
 			System.out.print(spotList);

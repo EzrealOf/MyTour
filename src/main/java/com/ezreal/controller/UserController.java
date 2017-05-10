@@ -29,7 +29,7 @@ public class UserController {
 		log.info(user);
 		
 		UserBean u = IUserServiceImp.login(user.getUsername(), user.getPassword());
-		
+
 		if(u!=null){
 			req.getSession().setAttribute("user", u);
 			json.setStatus(1);
@@ -58,9 +58,11 @@ public class UserController {
 	@ResponseBody
 	public BaseResponseByJson register(HttpServletRequest req,UserBean user) throws Exception{
 		int status=IUserServiceImp.checkUserNameExist(user.getUsername());
+
 		if(status == 0){
 			json.setStatus(status);
 			json.setMessage("恭喜!该用户名可以使用");
+			req.getSession().setAttribute("user",user);
 		}else{
 			json.setStatus(status);
 			json.setMessage("该用户名已被注册");
@@ -70,6 +72,15 @@ public class UserController {
 		IUserServiceImp.register(user);
 			
 		return json;
+	}
+
+	@RequestMapping("/toDisRegister")
+	public String disRegister(HttpServletRequest request){
+		request.getSession().removeAttribute("user");
+
+
+		return "index";
+
 	}
 		
 	@RequestMapping("/toIndex")

@@ -9,11 +9,41 @@
 <head>
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
 <title>注册</title>
 </head>
 <body>
+<div id = "front">
+    <#include "topbar.ftl">
+</div >
+<div class="container" onsubmit="return false">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <form role="form">
+                <div class="form-group">
+                    <label for="exampleInputUserName1">用户名</label><input type="text" class="form-control" id="username" />
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">密码</label><input type="password" class="form-control" id="password" />
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">请重新输入密码</label><input type="password" class="form-control" id="password2" />
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">请输入邮箱</label><input type="email" class="form-control" id="mailbox" />
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPhone">请输入手机号</label><input type="text" class="form-control" id="telephone" />
+                </div>
 
- </div>
+
+                <button type="submit" class="btn btn-default" onclick="subReg($(this))">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+ <#--</div>
     <form onsubmit="return false">
         <div class="pop-content accountPage">
             <div class="form_item">
@@ -27,16 +57,16 @@
                 <div class="item_tip">邮箱</div>
 
                 <input type="text" tabindex="2" value="" data-type="email" name="email" class="form_input" id="mailbox" onfocus="focusInputLoginArea($(this))" onblur="blurInputLoginArea($(this))" autocomplete="off"/>
-                <span class="error">不能为空</span>	
+                <span class="error">不能为空</span>
                 <i class="icon-loginright"></i>
-            </div>		
+            </div>
             <div class="form_item">
                 <div class="item_tip">密码</div>
                 <input type="password" tabindex="3" name="password" id="password" data-minlength="6" data-maxlength="20" class="form_input"   onfocus="focusInputLoginArea($(this))" onblur="blurInputLoginArea($(this))" autocomplete="off"/>
                 <span class="error">不能为空</span>
                 <span class="grey">6 - 20位</span>
                 <i class="icon-loginright"></i>
-            </div>			
+            </div>
             <div class="form_item">
                 <div class="item_tip">确认密码</div>
                 <input type="password" tabindex="4" name="password2" data-equal="#password" data-equal-error="两次输入的密码不一致" class="form_input" id="password2"  onfocus="focusInputLoginArea($(this))" onblur="blurInputLoginArea($(this))" autocomplete="off"/>
@@ -49,16 +79,10 @@
 
         </div>
     </form>
-</div>
+</div>-->
 
 
- <form action="register" method="post">
-		用户名:<input type="text" name= "username" />
-		密码:<input type ="password"name = "password">
-		邮箱:<input type ="text" name="mailbox">
-		电话:<input type ="text" name="telephone">
-		<input type="submit" value ="注册">
-	</form>
+
 <script src="js/fullplay.js" type="text/javascript">
 </script><script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
 
@@ -71,7 +95,7 @@
 </div>
 
 <script type="text/javascript">
-    function subReg() {
+    function subReg(obj) {
         /* blurInputLoginArea($("#username"), 1);
         blurInputLoginArea($("#mailbox"), 1);
         blurInputLoginArea($("#password"));
@@ -87,15 +111,15 @@
  		var password = $("#password").val();
  		var password2= $("#password2").val();
  		var mailbox =  $("#mailbox").val();
- 		
-        var obj = $("#btn_reg");
+ 		var telephone = $("#telephone").val();
+
         obj.addClass('disabled').val('注册中...');
         $.ajax({
 			
 			type:'post',
 			url: 'register',
 			timeout: 3000,
-			data: {username : username, mailbox : $("#mailbox").val(), password : $("#password").val()},
+			data: {username : username, mailbox : $("#mailbox").val(), password : $("#password").val(),telephone :telephone},
 			dataType:'json',
 			success:function(data){
 				if(data.status == 0){

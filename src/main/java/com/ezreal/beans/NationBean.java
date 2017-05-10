@@ -1,9 +1,11 @@
 package com.ezreal.beans;
 
+import java.io.Serializable;
+
 /**
  * Created by Ezreal# on 2017/4/27.
  */
-public class NationBean {
+public class NationBean implements Serializable {
     private int nationid;
     private  String nationname;
     private  String nationurl;

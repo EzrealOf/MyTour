@@ -2,7 +2,7 @@ package com.ezreal.beans;
 
 import java.io.Serializable;
 
-public class Hotel implements Serializable{
+public class HotelBean implements Serializable{
 	/**
 	 * 
 	 */
@@ -66,7 +66,7 @@ public class Hotel implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Hotel [hotelid=" + hotelid + ", hotelname=" + hotelname + ", point=" + point + ", title=" + title
+		return "HotelBean [hotelid=" + hotelid + ", hotelname=" + hotelname + ", point=" + point + ", title=" + title
 				+ ", price=" + price + ", tel=" + tel + ", level=" + level + ", cityid=" + cityid + "]";
 	}
 	

@@ -7,6 +7,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+
 <#--<base href="<%=basePath%>">-->
 <!-- <script type="text/javascript" src="jquery.js"></script> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -14,13 +17,40 @@
 </head>
 <body>
 <div class="wrap">
-	    <div class="pop-title clearfix">
-	        <a class="a_underline" href="toRegister">注册</a>
-	    </div>
-	    <form onsubmit="return false">
+    <div id = "front">
+        <#include "topbar.ftl">
+    </div >
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <form class="form-horizontal" onsubmit="return false">
+                    <div class="control-group">
+                        <label class="control-label" for="inputEmail">用户名</label>
+                        <div class="controls">
+                            <input type="text" tabindex="1" value="" name="username"  class="form_input" id="username" onblur="blurInputLoginBox($(this))"
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputPassword">密码</label>
+                        <div class="controls">
+                            <input type="password" tabindex="3" name="password" class="form_input" id="password" onblur="blurInputLoginBox($(this))"  onfocus ="focusInputLoginBox($(this))" autocomplete="off"/>
+                            <span class="error">不能为空</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="checkbox"><input type="checkbox" /> Remember me</label>
+                            <input type="submit" tabindex="7" value="登&nbsp;&nbsp;录" class="btn" id="btn_reg" onclick="subLogin($(this))"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+	<#--    <form onsubmit="return false">
 	        <div class="pop-content accountPage">
 	            <div class="form_item">
-	                <div class="item_tip">用户名/邮箱</div>
+	                <div class="item_tip">/邮箱</div>
 	                <input type="text" tabindex="1" value="" name="username"  class="form_input" id="username" onblur="blurInputLoginBox($(this))"  onfocus ="focusInputLoginBox($(this))" autocomplete="off"/>
 	                <span class="error">不能为空</span>
 	                <i class="icon-loginright"></i>
@@ -40,7 +70,7 @@
 	            <p class="notice_error" id="notice_error"></p>
 	            <input type="submit" tabindex="7" value="登&nbsp;&nbsp;录" class="btn_reg btn" id="btn_reg" onclick="subLogin($(this))"/>
 	        </div>
-	    </form>
+	    </form>-->
 	</div>
 	
 	<script src="js/fullplay.js" type="text/javascript"></script>
@@ -74,10 +104,10 @@ function subLogin(obj) {
 		type:'post',
 		url: 'login',
 		timeout: 3000,
-		data: {userName : username, password : password},
+		data: {username : username, password : password},
 		dataType:'json',
 		success:function(data){
-			if(data.status == 0){
+			if(data.status == 1){
 
 //	            showSuccessTip(data.message);
 				window.location.href='toIndex';

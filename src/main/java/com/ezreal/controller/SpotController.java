@@ -17,10 +17,11 @@ public class SpotController {
     private ISpotService ISpotServiceImpl;
 
     @RequestMapping("toSpot")
-    public String selectSpotByName(SpotBean spotBean,Map<String,Object>model){
+    public String selectSpotByName(String  name,Map<String,Object>model) throws Exception{
+        SpotBean spotBean=ISpotServiceImpl.selectSpotBySpotname(name);
         model.put("spot",spotBean);
         return "spot";
-
     }
+
 
 }
