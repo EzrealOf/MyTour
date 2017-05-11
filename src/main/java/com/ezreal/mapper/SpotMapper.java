@@ -12,4 +12,8 @@ public interface SpotMapper {
 
 	@Select("SELECT * from spot WHERE spotname =#{spotname}")
 	public SpotBean selectSpotBySpotname(String spotname) throws  Exception;
+
+	@Select("SELECT * from spot WHERE spotid =#{spotid}")
+	public SpotBean selectSpotBySpotid(int spotid) throws  Exception;
+
 }

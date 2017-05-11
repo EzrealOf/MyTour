@@ -8,4 +8,7 @@ public interface ISpotService {
 	public List<SpotBean> selectSpotByCityId(int id) throws Exception;
 
 	public SpotBean selectSpotBySpotname(String spotname) throws Exception;
+
+	public SpotBean selectSpotBySpotId(int spotid) throws Exception;
+
 }

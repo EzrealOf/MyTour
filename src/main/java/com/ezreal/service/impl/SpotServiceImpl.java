@@ -22,4 +22,9 @@ public class SpotServiceImpl implements ISpotService{
 	public SpotBean selectSpotBySpotname(String spotname) throws Exception {
 		return sm.selectSpotBySpotname(spotname);
 	}
+
+	@Override
+	public SpotBean selectSpotBySpotId(int spotid) throws Exception {
+		return sm.selectSpotBySpotid(spotid);
+	}
 }

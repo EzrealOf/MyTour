@@ -52,6 +52,7 @@
 		<#include "topbar.ftl">
 	</div >
 	<h1>
+
       <#--  <div class='parent'>
             <label for='ly'</label>
             <div><i id='lyr'>Being lazy...</i></div>
@@ -68,7 +69,7 @@
 			      </code>
 			    </pre>
         </div>-->
-  		<form action="toCity" method="post">
+  		<form action="toCity" method="get">
 			搜索:
 			<input type="text" name="cityname" id="cityname"">
 			<input type="submit" value="提交" />

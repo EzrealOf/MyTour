@@ -9,7 +9,17 @@ public class SpotInfoBean implements Serializable{
     private  int spotinfoid;
     private  String spotdes;
     private int userid;
+    private String username;
     private  int spotid;
+    private int spotstar;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public int getSpotinfoid() {
         return spotinfoid;
@@ -43,13 +53,23 @@ public class SpotInfoBean implements Serializable{
         this.spotid = spotid;
     }
 
+    public int getSpotstar() {
+        return spotstar;
+    }
+
+    public void setSpotstar(int spotstar) {
+        this.spotstar = spotstar;
+    }
+
     @Override
     public String toString() {
         return "SpotInfoBean{" +
                 "spotinfoid=" + spotinfoid +
                 ", spotdes='" + spotdes + '\'' +
                 ", userid=" + userid +
+                ", username='" + username + '\'' +
                 ", spotid=" + spotid +
+                ", spotstar=" + spotstar +
                 '}';
     }
 }

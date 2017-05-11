@@ -22,7 +22,7 @@ public class SpotBean implements Serializable {
 	private String spotinformurl;
 	private String spottips;
 	private String spotenglishname;
-
+	private String spotpoint;
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
 	}
@@ -139,6 +139,14 @@ public class SpotBean implements Serializable {
 		this.spotenglishname = spotenglishname;
 	}
 
+	public String getSpotpoint() {
+		return spotpoint;
+	}
+
+	public void setSpotpoint(String spotpoint) {
+		this.spotpoint = spotpoint;
+	}
+
 	@Override
 	public String toString() {
 		return "SpotBean{" +
@@ -156,6 +164,7 @@ public class SpotBean implements Serializable {
 				", spotinformurl='" + spotinformurl + '\'' +
 				", spottips='" + spottips + '\'' +
 				", spotenglishname='" + spotenglishname + '\'' +
+				", spotpoint='" + spotpoint + '\'' +
 				'}';
 	}
 }
