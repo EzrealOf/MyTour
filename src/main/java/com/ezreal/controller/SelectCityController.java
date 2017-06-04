@@ -53,13 +53,13 @@ public class SelectCityController {
 		if(c!=null){
 			spotList = ISpotServiceImpl.selectSpotByCityId(c.getCityid());
 //			System.out.print(spotList);
-			model.put("city",c.getCityname());
+			model.put("city",c);
 			model.put("spotList", spotList);
 			return  "city";
 		}else if(nationBean != null){
 			spotList =ICityServiceImpl.selectCityByNationID(nationBean.getNationid());
 //			System.out.print(spotList);
-			model.put("city",nationBean.getNationname());
+			model.put("nation",nationBean);
 			model.put("spotList", spotList);
 			return "nation";
 		}else if(spotBean !=null){

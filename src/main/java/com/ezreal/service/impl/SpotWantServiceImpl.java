@@ -1,10 +1,13 @@
 package com.ezreal.service.impl;
 
+import com.ezreal.beans.SpotBean;
 import com.ezreal.beans.SpotWantBean;
 import com.ezreal.mapper.SpotWantMapper;
 import com.ezreal.service.ISpotWantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by Ezreal# on 2017/5/11.
@@ -13,6 +16,7 @@ import org.springframework.stereotype.Service;
 public class SpotWantServiceImpl implements ISpotWantService{
     @Autowired
     private SpotWantMapper spotWantMapper;
+
 
     @Override
     public int spotWant(SpotWantBean spotWantBean) {
@@ -31,4 +35,6 @@ public class SpotWantServiceImpl implements ISpotWantService{
 
         return selectSpotWant(spotid,userid);
     }
+
+
 }

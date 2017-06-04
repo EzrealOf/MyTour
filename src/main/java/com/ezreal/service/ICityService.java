@@ -9,4 +9,5 @@ public interface ICityService {
 
 	public List<CityBean> selectCityByNationID(int nationid) throws Exception;
 
+
 }

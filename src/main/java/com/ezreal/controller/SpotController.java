@@ -11,6 +11,7 @@ import com.ezreal.service.impl.SpotServiceImpl;
 import com.ezreal.tool.BaseResponseByJson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -35,8 +36,10 @@ public class SpotController {
     @Autowired
     BaseResponseByJson json;
 
-    List<SpotBean> tourList =new ArrayList<SpotBean>();
-    List<SpotBean> timeTourList = new ArrayList<SpotBean>();
+
+
+    private List<SpotBean> tourList =new ArrayList<SpotBean>();
+    private List<SpotBean> timeTourList = new ArrayList<SpotBean>(); //最优时间
 
 
 
@@ -46,7 +49,7 @@ public class SpotController {
         model.put("spot",spotBean);
         List<SpotInfoBean> InfoList =spotInfoServiceImpl.selectSpotInfoBySpotId(spotBean.getSpotid());
         model.put("infoList",InfoList);
-        System.out.print(InfoList);
+//        System.out.print(InfoList);
         return "spot";
     }
     @ResponseBody
@@ -78,17 +81,15 @@ public class SpotController {
     return json;
     }
 
-    /**
-     * 创建行程
-     * @param spotlist
-     * @param type
-     * @param days
-     * @param model
-     * @return
-     * @throws Exception
-     */
+//    @ResponseBody
     @RequestMapping("/myTour")
-    public  String myTour(List<SpotBean> spotlist,int type,int days ,Map<String,Object> model)throws Exception{
+    public  String myTour(int cityid,int types,int days ,Map<String,Object> model)throws Exception{
+        if(tourList.size() !=0)
+            tourList=new ArrayList<SpotBean>();
+        if(!timeTourList.isEmpty())
+            timeTourList=new ArrayList<SpotBean>();
+        List<SpotBean> spotlist = new ArrayList<SpotBean>();
+        spotlist= spotServiceImpl.selectSpotByCityId(cityid);
         ArrayList<Integer> starList = new ArrayList<Integer>();//景点平均星级
         ArrayList<Integer> resultList; //结果转换tmp
 
@@ -99,7 +100,7 @@ public class SpotController {
             List<SpotInfoBean> list=spotInfoServiceImpl.selectSpotInfoBySpotId(spotlist.get(i).getSpotid());//获取SpotInfoBean
             int star =0;
             int avg=0;
-            if(list != null){
+            if(list.size() !=0){
                  for (int j =0;j<list.size();j++){
                 star +=list.get(j).getSpotstar();
 //
@@ -112,19 +113,21 @@ public class SpotController {
             starList.add(avg);
         }
 
-        int spotnumber =type*days;//景点数
+        int spotnumber =types*days;//景点数
 
         resultList = valueOfSpot(starList,spotnumber);
         for (int i = 0; i <resultList.size() ; i++) {
+
             maxStarSpotList.add(spotServiceImpl.selectSpotBySpotId(resultList.get(i)));
         }
         model.put("maxStarSpotList",maxStarSpotList); //最优价值景点
         timeOfSpot(start,spotlist,spotnumber);
         model.put("timeTourList",timeTourList);//最优时间
+        spotlist= spotServiceImpl.selectSpotByCityId(cityid);
         greedy(start,spotlist,starList,spotnumber);
-        model.put("tourList",tourList);
-        tourList.size();
-        return "tour";
+        model.put("tourList",tourList);//瞎写的
+
+        return "mytour";
     }
 
     /**
@@ -147,10 +150,11 @@ public class SpotController {
             String end =spotlist.get(i).getSpotpoint();
             String endLatitude=end.substring(0,end.indexOf(','));//目标纬度
             String endLongitude=end.substring(end.indexOf(',')+1);//目标经度
-            int a =Math.abs(Integer.valueOf(endLatitude.substring(endLatitude.indexOf('.')+1))-Integer.valueOf(startLatitude.substring(startLatitude.indexOf("."+1)))); //a边
-            int b =Math.abs(Integer.valueOf(endLongitude.substring(endLongitude.indexOf('.')+1))-Integer.valueOf(startLongitude.substring(startLongitude.indexOf("."+1))));//b边
-            double  c =Math.sqrt(a*a +b*b);
-            double d =(c/perDistance);//到达目标的的小时数
+
+            int a =Math.abs(Integer.valueOf(endLatitude.substring(endLatitude.indexOf('.')+1))-Integer.valueOf(startLatitude.substring(startLatitude.indexOf('.')+1))); //a边
+            int b =Math.abs(Integer.valueOf(endLongitude.substring(endLongitude.indexOf('.')+1))-Integer.valueOf(startLongitude.substring(startLongitude.indexOf('.')+1)));//b边
+            double  c =Math.abs(a*a+b*b);
+            double d =Math.sqrt(c/(perDistance*perDistance));//到达目标的的小时数
             if(time > d){
                 k=i;
                 time =d;
@@ -176,15 +180,16 @@ public class SpotController {
         for (int i = 0; i <spotnumber ; i++) {
             int temp=0;
             int k=0;
-            for (int j=0;i<starList.size();j++){
+            for (int j=0;j<starList.size();j++){
 
                 if (temp<starList.get(j)){
+                    temp = starList.get(j);
                     k=j;
                 }
 
             }
-            resultList.add(k);
-            starList.remove(k);
+            resultList.add(k+1);
+            starList.set(k,0);
             if(starList.size()==0){
                 return resultList;
             }
@@ -215,10 +220,10 @@ public class SpotController {
             String end =spotlist.get(i).getSpotpoint();
             String endLatitude=end.substring(0,end.indexOf(','));//目标纬度
             String endLongitude=end.substring(end.indexOf(',')+1);//目标经度
-            int a =Math.abs(Integer.valueOf(endLatitude.substring(endLatitude.indexOf('.')+1))-Integer.valueOf(startLatitude.substring(startLatitude.indexOf("."+1))));
-            int b =Math.abs(Integer.valueOf(endLongitude.substring(endLongitude.indexOf('.')+1))-Integer.valueOf(startLongitude.substring(startLongitude.indexOf("."+1))));
-            double  c =Math.sqrt(a*a +b*b);
-            int d =(int)(c/maxdistance);//到达目标的的小时数
+            int a =Math.abs(Integer.valueOf(endLatitude.substring(endLatitude.indexOf('.')+1))-Integer.valueOf(startLatitude.substring(startLatitude.indexOf(".")+1)));
+            int b =Math.abs(Integer.valueOf(endLongitude.substring(endLongitude.indexOf('.')+1))-Integer.valueOf(startLongitude.substring(startLongitude.indexOf(".")+1)));
+            double  c =Math.sqrt(Math.abs(a*a+b*b));
+            double d =(c/maxdistance);//到达目标的的小时数
             e =starList.get(i)*k/d; //带权分配的价值
             if(e>flag){
                 index=i;
