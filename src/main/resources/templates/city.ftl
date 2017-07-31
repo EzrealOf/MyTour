@@ -7,7 +7,7 @@
 <!-- Basic Page Needs
 ================================================== -->
 <meta charset="utf-8" />
-<title>Index</title>
+<title>City</title>
 
 <!-- Mobile Specific
 ================================================== -->
@@ -15,10 +15,10 @@
 
 <!-- CSS
 ================================================== -->
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<link rel="stylesheet" type="text/css" href="css/boxed.css" id="layout" />
-<link rel="stylesheet" type="text/css" href="css/colors/green.css" id="colors" />
-
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/boxed.css" id="layout" />
+	<link rel="stylesheet" type="text/css" href="css/colors/green.css" id="colors" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <!-- Java Script
 ================================================== -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -37,6 +37,11 @@
 <link rel="stylesheet" type="text/css" href="css/switcher.css" />
 <script src="js/switcher.js"></script>
 
+<style type="text/css">
+	@media only screen and (min-width: 960px) {#portfolio-wrapper img {min-height: 139px;}} 
+	@media only screen and (min-width: 768px) and (max-width: 959px) {#portfolio-wrapper img {min-height: 108px;}}
+</style>
+
 <script src='/google_analytics_auto.js'></script><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 
@@ -52,6 +57,7 @@
 	<#include "headbar.ftl">
 	<#include "navigation.ftl">
 
+
 </div>
 <!-- 960 Container / End -->
 
@@ -62,154 +68,75 @@
 <!-- 960 Container -->
 <div class="container">
 
-	<!-- Flexslider -->
 	<div class="sixteen columns">
-		<section class="slider">
-			<div class="flexslider home">
-				<ul class="slides">
-				
-					<li>
-						<img src="images/slider-img-01.jpg" alt="" />
-						<div class="slide-caption n">
-							<h3>风景</h3>
-							<p>秘鲁的马丘比丘古城是已知保存最好的遗迹，它也是世界各地旅行者所关注的焦点。它曾一度被人们所遗忘，1911年被一位名为海勒姆-宾汉姆的考古学家再次发现。</p>
-						</div>
-					</li>
-					
-					<li>
-						<img src="images/slider-img-02.jpg" alt="" />
-						<div class="slide-caption">
-							<h3>海岸</h3>
-							<p>天然的海湾屏障使得芭东沙滩平缓，海浪柔和，适合游泳及在沙滩边嬉戏。靠着得天独厚的地理环境，芭东海滩也成为普吉岛开发最早，发展最成熟的海滩之一，这里酒店林立，餐厅、酒吧、小商铺比比皆是，但也正是因为她的繁华，使得芭东略显商业化，沙滩和海水的污染也排在普吉各个海滩之首。</p>
-						</div>
-					</li>
-					
-					<li>
-						<img src="images/slider-img-03.jpg" alt="" />
-					</li>
-					
-				</ul>
-			</div>
-		</section>
-  	</div>
-	<!-- Flexslider / End -->
 	
-</div>
-<!-- 960 Container / End -->
+		<!-- Page Title -->
+		<div id="page-title">
+			<h2>${city.cityname}<span>/${city.citydes}</span></h2>
+			
+			<!-- Filters -->
+			<#--<div id="filters">-->
+				<#--<ul class="option-set" data-option-key="filter">-->
+					<#--<li><a href="#filter" class="selected" data-option-value="*">All</a></li>-->
+					<#--<li><a href="#filter" data-option-value=".interior-design">Interior Design</a></li>-->
+					<#--<li><a href="#filter" data-option-value=".architecture">Architecture</a></li>-->
+					<#--<li><a href="#filter" data-option-value=".scenery">Scenery</a></li>-->
+					<#--<li><a href="#filter" data-option-value=".real-estate">Real Estate</a></li>-->
+				<#--</ul>-->
+			<#--</div>-->
+			<div class="clear"></div>
+			
+			<div id="bolded-line"></div>
+		</div>
+		<!-- Page Title / End -->
 
-
-<!-- 960 Container -->
-<div class="container">
-
-	<!-- Icon Boxes -->
-	<div class="icon-box-container">
-
-		<!-- Icon Box Start -->
-		<#--<div class="one-third column">
-			<div class="icon-box">
-				<i class="ico-display" style="margin-left: -10px;"></i>
-				<h3>Fresh &amp; Clean Design</h3>
-				<p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt.</p>
-			</div>
-		</div>-->
-		<!-- Icon Box End -->
-		
-		<!-- Icon Box Start -->
-		<#--<div class="one-third column">
-			<div class="icon-box">
-				<i class="ico-cogwheel"></i>
-				<h3>Easily Customization</h3>
-				<p>Nam aliquam volutpat leo vel bibendum nunc elit purus, tempus pulvinare rhoncus egestas nibh volutpat leo.</p>
-			</div>
-		</div>-->
-		<!-- Icon Box End -->
-		
-		<!-- Icon Box Start -->
-		<#--<div class="one-third column">
-			<div class="icon-box">
-				<i class="ico-iphone"></i>
-				<h3>Fully Responsive</h3>
-				<p>Fusce porttitor turpis quis molestie costant equat. Nam purus, tincidunt sedeat dapibus ugravida ut dui. Fusce et magna libero.</p>
-			</div>
-		</div>-->
-		<!-- Icon Box End -->
-		
 	</div>
-	<!-- Icon Boxes / End -->
-	
 </div>
 <!-- 960 Container / End -->
 
 <!-- 960 Container -->
 <div class="container">
-
-	<div class="sixteen columns">
-		<!-- Headline -->
-		<div class="headline no-margin"><h3>旅游</h3></div>
-	</div>
 	
-	<!-- Project -->
-	<div class="four columns">
-		<div class="picture"><a href="single_project.html"><img src="images/portfolio/portoflio-09.jpg" alt="" /><div class="image-overlay-link"></div></a></div>
-		<div class="item-description">
-			<h5><a href="#">Touch Gestures</a></h5>
-			<p>Mauris sit amet ligula est, eget conseact etur lectus maecenas hendrerit suscipit.</p>
+	<!-- Portfolio Content -->
+	<div id="portfolio-wrapper">
+	<#list spotList as list>
+		<!-- 1/4 Column -->
+		<div class="four columns portfolio-item interior-design architecture real-estate">
+			<div class="picture"><a href="${list.spoturl}" rel="image" title="${list.spotenglishname}"><img src="${list.spoturl}" alt="" /><div class="image-overlay-zoom"></div></a></div>
+			<div class="item-description alt">
+				<h5><a href="toSpot?name=${list.spotname}">${list.spotname}</a></h5>
+				<#--<p>Mauris sit amet ligula est, eget conseact etur lectus maecenas hendrerit suscipit</p>-->
+			</div>
 		</div>
+	</#list>
 	</div>
-	
-	<!-- Project -->
-	<div class="four columns">
-		<div class="picture"><a href="images/portfolio/portoflio-08-large.jpg" rel="image" title="Coffee Time"><img src="images/portfolio/portoflio-08.jpg" alt="" /><div class="image-overlay-zoom"></div></a></div>
-		<div class="item-description">
-			<h5><a href="#">Coffee Time</a></h5>
-			<p>Amet sit lorem ligula est, eget conseact etur lectus hendrerit suscipit maecenas.</p>
-		</div>
-	</div>
-	
-	<!-- Project -->
-	<div class="four columns">
-		<div class="picture"><a href="single_project.html"><img src="images/portfolio/portoflio-10.jpg" alt="" /><div class="image-overlay-link"></div></a></div>
-		<div class="item-description">
-			<h5><a href="#">Surfing The Web</a></h5>
-			<p>Lorem sit amet ligula est, eget conseact etur lectus maecenas hendrerit suscipit.</p>
-		</div>
-	</div>
-	
-	<!-- Project -->
-	<div class="four columns">
-		<div class="picture"><a href="single_project.html"><img src="images/portfolio/portoflio-07.jpg" alt="" /><div class="image-overlay-link"></div></a></div>
-		<div class="item-description">
-			<h5><a href="#">Wireless Keyboard</a></h5>
-			<p>Ligula mauris sit amet est eget consat etur lectus maecenas hendrerit suscipit.</p>
-		</div>
-	</div>
-	
-</div>
-<!-- 960 Container / End -->
-
-
-<!-- 960 Container -->
-<div class="container">
-	<div class="sixteen columns">
-	
-		<!-- Headline -->
-		<#--<div class="headline no-margin"><h3>Our Clients</h3></div>-->
-		<#---->
-		<#--<ul class="client-list">-->
-			<#--<li><img src="images/logo-01.png" alt="" /></li>-->
-			<#--<li><img src="images/logo-02.png" alt="" /></li>-->
-			<#--<li><img src="images/logo-03.png" alt="" /></li>-->
-			<#--<li><img src="images/logo-04.png" alt="" /></li>-->
-			<#--<li><img src="images/logo-05.png" alt="" /></li>-->
-		<#--</ul>-->
+	<!-- End Portfolio Content -->
 		
-	</div>
 </div>
-<!-- 960 Container / End -->
+<!-- End 960 Container -->
+<#if user?exists>
+	<div class="sixteen columns">
+		<div class="headline no-margin">
+			<h3>创建行程</h3>
+			<#--<br>-->
+			<form action="myTour" method="post">
+            天数:<input id="days" name ="days" value="0" type="number" class="rating" min=1 max=8 step=1 data-size="xl" data-stars="8">
+            等级:<input id="types" name="types" value="0" type="number" class="rating" min=1 max=3 step=1 data-size="xl" data-stars="8">
+            <input type="hidden" class="form-control" name="cityid" value="${city.cityid}">
+            <input type="submit" class="form-control" />
+            </form>
+           <#-- <input type="text" class="form-control" name="types" />-->
+			<#--<input>-->
 
-</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+</#if>
+
+
+
+
 <!-- Wrapper / End -->
-
 
 <!-- Footer
 ================================================== -->

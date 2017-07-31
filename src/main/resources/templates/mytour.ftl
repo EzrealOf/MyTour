@@ -7,7 +7,7 @@
 <!-- Basic Page Needs
 ================================================== -->
 <meta charset="utf-8" />
-<title>Index</title>
+<title>Tour</title>
 
 <!-- Mobile Specific
 ================================================== -->
@@ -49,6 +49,7 @@
 
 <!-- 960 Container -->
 <div class="container ie-dropdown-fix">
+
 	<#include "headbar.ftl">
 	<#include "navigation.ftl">
 
@@ -60,156 +61,153 @@
 ================================================== -->
 
 <!-- 960 Container -->
-<div class="container">
+<#--<div class="container">
 
-	<!-- Flexslider -->
 	<div class="sixteen columns">
-		<section class="slider">
-			<div class="flexslider home">
-				<ul class="slides">
-				
-					<li>
-						<img src="images/slider-img-01.jpg" alt="" />
-						<div class="slide-caption n">
-							<h3>风景</h3>
-							<p>秘鲁的马丘比丘古城是已知保存最好的遗迹，它也是世界各地旅行者所关注的焦点。它曾一度被人们所遗忘，1911年被一位名为海勒姆-宾汉姆的考古学家再次发现。</p>
-						</div>
-					</li>
-					
-					<li>
-						<img src="images/slider-img-02.jpg" alt="" />
-						<div class="slide-caption">
-							<h3>海岸</h3>
-							<p>天然的海湾屏障使得芭东沙滩平缓，海浪柔和，适合游泳及在沙滩边嬉戏。靠着得天独厚的地理环境，芭东海滩也成为普吉岛开发最早，发展最成熟的海滩之一，这里酒店林立，餐厅、酒吧、小商铺比比皆是，但也正是因为她的繁华，使得芭东略显商业化，沙滩和海水的污染也排在普吉各个海滩之首。</p>
-						</div>
-					</li>
-					
-					<li>
-						<img src="images/slider-img-03.jpg" alt="" />
-					</li>
-					
+
+		<!-- Page Title &ndash;&gt;
+		<div id="page-title">
+			<h2>Maritime Details <span>/ Single Project</span></h2>
+
+			<!-- Portfolio Navi &ndash;&gt;
+			<div id="portfolio-navi">
+				<ul>
+					<li><a class="prev" href="#"></a></li>
+					<li><a class="next" href="#"></a></li>
 				</ul>
 			</div>
-		</section>
-  	</div>
-	<!-- Flexslider / End -->
-	
-</div>
+			<div class="clear"></div>
+
+			<div id="bolded-line"></div>
+		</div>
+		<!-- Page Title / End &ndash;&gt;
+
+	</div>
+</div>-->
 <!-- 960 Container / End -->
 
 
 <!-- 960 Container -->
-<div class="container">
+<#--<div class="container">
 
-	<!-- Icon Boxes -->
-	<div class="icon-box-container">
-
-		<!-- Icon Box Start -->
-		<#--<div class="one-third column">
-			<div class="icon-box">
-				<i class="ico-display" style="margin-left: -10px;"></i>
-				<h3>Fresh &amp; Clean Design</h3>
-				<p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt.</p>
-			</div>
-		</div>-->
-		<!-- Icon Box End -->
-		
-		<!-- Icon Box Start -->
-		<#--<div class="one-third column">
-			<div class="icon-box">
-				<i class="ico-cogwheel"></i>
-				<h3>Easily Customization</h3>
-				<p>Nam aliquam volutpat leo vel bibendum nunc elit purus, tempus pulvinare rhoncus egestas nibh volutpat leo.</p>
-			</div>
-		</div>-->
-		<!-- Icon Box End -->
-		
-		<!-- Icon Box Start -->
-		<#--<div class="one-third column">
-			<div class="icon-box">
-				<i class="ico-iphone"></i>
-				<h3>Fully Responsive</h3>
-				<p>Fusce porttitor turpis quis molestie costant equat. Nam purus, tincidunt sedeat dapibus ugravida ut dui. Fusce et magna libero.</p>
-			</div>
-		</div>-->
-		<!-- Icon Box End -->
-		
+	<!-- Slider &ndash;&gt;
+	<div class="sixteen columns">
+		<div class="flexslider home">
+			<ul class="slides">
+				<li><img src="images/portfolio/portoflio-single-01.jpg" alt="" /></li>
+				<li><img src="images/portfolio/portoflio-single-02.jpg" alt="" /></li>
+			 </ul>
+		</div>
 	</div>
-	<!-- Icon Boxes / End -->
 	
-</div>
-<!-- 960 Container / End -->
+</div>-->
+<!-- End 960 Container -->
+
+
+<!-- 960 Container -->
+<#--<div class="container" style="margin-top: 30px;">
+
+	<div class="four columns">
+		<ul class="project-info">
+			<li><strong>Client:</strong> Google</li>
+			<li><strong>Date:</strong> August 2012</li>
+		</ul>
+		<a href="#" class="button color launch">Launch Project</a>
+	</div>
+
+	<div class="twelve columns tooltips">
+		<div class="six columns alpha"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.Nullam quis risus eget urna mollis ornare.</p></div>
+		<div class="six columns alpha"><p>Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur. Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor.</p></div>
+	</div>
+	
+</div>-->
+<!-- End 960 Container -->
+<#--
+
+<#list tourList as tourList>
+${tourList.spotname}
+    <br>
+
+</#list>
+<#list timeTourList as timeTourList>
+${timeTourList.spotname}
+    <br>
+
+</#list>
+
+<#list maxStarSpotList as maxStarSpotList>
+${maxStarSpotList.spotname}
+    <br>
+
+</#list>
+-->
 
 <!-- 960 Container -->
 <div class="container">
 
 	<div class="sixteen columns">
 		<!-- Headline -->
-		<div class="headline no-margin"><h3>旅游</h3></div>
+		<div class="headline" style="margin-top: 5px;"><h3>基于时间和距离考虑的旅游线路</h3></div>
 	</div>
-	
-	<!-- Project -->
-	<div class="four columns">
-		<div class="picture"><a href="single_project.html"><img src="images/portfolio/portoflio-09.jpg" alt="" /><div class="image-overlay-link"></div></a></div>
-		<div class="item-description">
-			<h5><a href="#">Touch Gestures</a></h5>
-			<p>Mauris sit amet ligula est, eget conseact etur lectus maecenas hendrerit suscipit.</p>
-		</div>
-	</div>
-	
-	<!-- Project -->
-	<div class="four columns">
-		<div class="picture"><a href="images/portfolio/portoflio-08-large.jpg" rel="image" title="Coffee Time"><img src="images/portfolio/portoflio-08.jpg" alt="" /><div class="image-overlay-zoom"></div></a></div>
-		<div class="item-description">
-			<h5><a href="#">Coffee Time</a></h5>
-			<p>Amet sit lorem ligula est, eget conseact etur lectus hendrerit suscipit maecenas.</p>
-		</div>
-	</div>
-	
-	<!-- Project -->
-	<div class="four columns">
-		<div class="picture"><a href="single_project.html"><img src="images/portfolio/portoflio-10.jpg" alt="" /><div class="image-overlay-link"></div></a></div>
-		<div class="item-description">
-			<h5><a href="#">Surfing The Web</a></h5>
-			<p>Lorem sit amet ligula est, eget conseact etur lectus maecenas hendrerit suscipit.</p>
-		</div>
-	</div>
-	
-	<!-- Project -->
-	<div class="four columns">
-		<div class="picture"><a href="single_project.html"><img src="images/portfolio/portoflio-07.jpg" alt="" /><div class="image-overlay-link"></div></a></div>
-		<div class="item-description">
-			<h5><a href="#">Wireless Keyboard</a></h5>
-			<p>Ligula mauris sit amet est eget consat etur lectus maecenas hendrerit suscipit.</p>
-		</div>
-	</div>
-	
-</div>
-<!-- 960 Container / End -->
+<#list tourList as tourList>
 
-
-<!-- 960 Container -->
-<div class="container">
-	<div class="sixteen columns">
-	
-		<!-- Headline -->
-		<#--<div class="headline no-margin"><h3>Our Clients</h3></div>-->
-		<#---->
-		<#--<ul class="client-list">-->
-			<#--<li><img src="images/logo-01.png" alt="" /></li>-->
-			<#--<li><img src="images/logo-02.png" alt="" /></li>-->
-			<#--<li><img src="images/logo-03.png" alt="" /></li>-->
-			<#--<li><img src="images/logo-04.png" alt="" /></li>-->
-			<#--<li><img src="images/logo-05.png" alt="" /></li>-->
-		<#--</ul>-->
 		
+	<!-- 1/4 Column -->
+	<div class="four columns">
+		<div class="picture"><a href="toSpot?name=${tourList.spotname}"><img src="${tourList.spoturl}" alt="" /><div class="image-overlay-link"></div></a></div>
+		<div class="item-description related">
+			<h5><a href="single_project.html">${tourList.spotname}</a></h5>
+			<#--<p>Mauris sit amet ligula est, eget conseact etur lectus maecenas hendrerit suscipit</p>-->
+		</div>
 	</div>
+</#list>
+    <div class="container">
+
+        <div class="sixteen columns">
+            <!-- Headline -->
+            <div class="headline" style="margin-top: 5px;"><h3>基于时间考虑的旅游线路</h3></div>
+        </div>
+
+
+	<#list timeTourList as timeTourList>
+
+
+        <!-- 1/4 Column -->
+        <div class="four columns">
+            <div class="picture"><a href="toSpot?name=${timeTourList.spoturl}"><img src="${timeTourList.spoturl}" alt="" /><div class="image-overlay-link"></div></a></div>
+            <div class="item-description related">
+                <h5><a href="#">${timeTourList.spotname}</a></h5>
+			<#--<p>Mauris sit amet ligula est, eget conseact etur lectus maecenas hendrerit suscipit</p>-->
+            </div>
+        </div>
+	</#list>
+        <div class="container">
+
+            <div class="sixteen columns">
+                <!-- Headline -->
+                <div class="headline" style="margin-top: 5px;"><h3>基于景点价值考虑的旅游线路</h3></div>
+            </div>
+	<#list maxStarSpotList as maxStarSpotList>
+
+
+        <!-- 1/4 Column -->
+        <div class="four columns">
+            <div class="picture"><a href="toSpot?name=${maxStarSpotList.spotname}"><img src="${maxStarSpotList.spoturl}" alt="" /><div class="image-overlay-link"></div></a></div>
+            <div class="item-description related">
+                <h5><a href="single_project.html">${maxStarSpotList.spotname}</a></h5>
+			<#--<p>Mauris sit amet ligula est, eget conseact etur lectus maecenas hendrerit suscipit</p>-->
+            </div>
+        </div>
+	</#list>
+
+    </div>
+	
 </div>
 <!-- 960 Container / End -->
+
 
 </div>
 <!-- Wrapper / End -->
-
 
 <!-- Footer
 ================================================== -->
